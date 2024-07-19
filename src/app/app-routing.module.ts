@@ -10,16 +10,8 @@ import { AuthGuard } from './service/auth.guard';
 import { NoAuthGuard } from './service/noauth.guard';
 
 const routes: Routes = [
-  // {
-  //   path: ':language',
-  //   component: UsersListComponent,
-  //   canActivate: [AuthGuard]
-  // },
-  // {
-  //   path: '',
-  //   redirectTo: '/en/login',
-  //   pathMatch: 'full'
-  // },
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [NoAuthGuard] },
   { path: 'users', component: UsersListComponent, canActivate: [AuthGuard] },
   { path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard] },

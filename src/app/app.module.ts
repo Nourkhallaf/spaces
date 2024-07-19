@@ -12,6 +12,7 @@ import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/api.service';
+import { LocalStorageService } from './service/localStorage.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { ApiService } from './service/api.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
