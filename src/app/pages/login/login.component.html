@@ -1,0 +1,30 @@
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card login-card shadow">
+    <div class="row no-gutters">
+      <div class="col-md-6 d-none d-md-block">
+        <img src="assets/images/login-image.png" class="card-img" alt="Login Image">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h2 class="card-title">Welcome back!</h2>
+          <p class="card-text">Please login to access your <span class="text-primary">Spaces</span> Dashboard</p>
+          <form (ngSubmit)="login()">
+            <div class="form-group">
+              <label for="email">Username</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Username..." required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="********" required>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="#" class="text-primary">Forgot password?</a>
+              <button type="submit" class="btn btn-primary">LOGIN</button>
+            </div>
+          </form>
+          <div *ngIf="message" class="alert mt-3" [class.alert-success]="message.includes('successful')" [class.alert-danger]="message.includes('failed')">{{ message }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
