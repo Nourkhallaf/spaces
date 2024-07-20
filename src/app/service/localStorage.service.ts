@@ -4,10 +4,8 @@ import { Injectable, EventEmitter } from '@angular/core';
   providedIn: 'root',
 })
 export class LocalStorageService {
-  public static UserRoleObserver$ = new EventEmitter();
 
   private readonly authorized = 'authorized';
-  private readonly userRole = 'userrole';
   private readonly token = 'token';
 
   setAuthorization(token: string) {
@@ -23,23 +21,9 @@ export class LocalStorageService {
     return localStorage.getItem(this.authorized) === 'true';
   }
 
-  getUserRole(): string[] | null {
-    const userRole = localStorage.getItem(this.userRole);
-    return userRole ? JSON.parse(userRole) : null;
-  }
-
   removeAuthorization() {
     localStorage.removeItem(this.token);
     localStorage.removeItem(this.authorized);
-  }
-
-  setUserRole(role: string[]) {
-    localStorage.setItem(this.userRole, JSON.stringify(role));
-    LocalStorageService.UserRoleObserver$.emit(role);
-  }
-
-  removeUserRole() {
-    localStorage.removeItem(this.userRole);
   }
 
   clear() {
