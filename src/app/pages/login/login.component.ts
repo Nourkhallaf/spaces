@@ -12,12 +12,26 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   message: string = '';
+  isAuthurized:boolean = false;
+  loadingMore: boolean = false;
+
 
   constructor(private apiService: ApiService,
              private localStorageService: LocalStorageService,
              private router: Router,
 
-  ) {}
+  ) {
+    if (localStorageService.getAuthorization()) {
+      console.log("User is authenticated")
+      router.navigate(['']);
+      this.isAuthurized = true;
+    } else {
+      console.log("User is not authenticated")
+      router.navigate(['login']);
+      this.isAuthurized = false;
+    }
+  }
+
 
   login() {
     let credentials ={
