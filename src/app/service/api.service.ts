@@ -15,7 +15,6 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   login(credentials: { email: string, password: string }): Observable<any> {
-
     return this.http.post(`${this.API_URL}/login`, credentials).pipe(
       tap((response: any) => {
         this.token = response.token;
@@ -27,15 +26,19 @@ export class ApiService {
   getUsers(): Observable<any> {
     return this.http.get(`${this.API_URL}/users`);
   }
+  getUser(userId: number): Observable<any> {
+    return this.http.get(`${this.API_URL}/users/${userId}`);
+  }
 
   getUsersWithDelay(): Observable<any> {
     return this.http.get(`${this.API_URL}/users?delay=3`);
   }
 
-  getUser(userId: number): Observable<any> {
-    return this.http.get(`${this.API_URL}/users/${userId}`);
-  }
   createUser(user: UserReqModel): Observable<any> {
     return this.http.post(`${this.API_URL}/users`, user);
+  }
+
+  deleteUser(userId: number): Observable<any> {
+    return this.http.delete<any>(`${this.API_URL}/users/${userId}`);
   }
 }
