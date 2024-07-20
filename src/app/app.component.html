@@ -22,8 +22,15 @@
             <a class="nav-link" routerLink="/contact">Contact</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link btn btn-outline-primary ml-2" routerLink="/login">Login</a> -->
-            <button type="submit" routerLink="/login" class="btn btn-primary w-100">LOGIN</button>
+            <div *ngIf="isAuthurized=== false">
+              <button type="submit" class="btn btn-primary w-100">LOGIN</button>
+            </div>
+            <div *ngIf="isAuthurized === true">
+              <button type="submit" routerLink=""
+              (click)="logout()"
+              class="btn btn-primary w-100">LOGOUT</button>
+
+            </div>
 
           </li>
         </ul>
