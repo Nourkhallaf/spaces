@@ -1,0 +1,30 @@
+@import url(../../../styles.scss);
+
+
+.cancel{
+  border-color: #8e44ad;
+  border-radius: 30rem;
+  color :#8e44ad
+}
+.user-avatar-modal {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -30px;
+}
+
+.modal-dialog {
+  padding-top: 15rem;
+}
+
+.btn-lg {
+  padding:0 5rem;
+}
+
+
+.modal-header {
+  position: relative;
+  border-bottom: none;
+  text-align: center;
+  padding-top: 4rem;
+}
