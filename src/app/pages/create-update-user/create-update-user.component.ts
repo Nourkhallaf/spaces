@@ -14,7 +14,10 @@ export class CreateUserComponent implements OnInit  {
 
   @Input() user: User = new User()
   @Input() isEditMode: boolean = false;
-  @Input() name: string =''
+  @Input() name: string ='';
+  @Input() job: string = '';
+  @Output() saveUser = new EventEmitter<any>();
+
   userReqModel: UserReqModel = new UserReqModel()
 
   constructor(private apiService: ApiService,
@@ -22,19 +25,26 @@ export class CreateUserComponent implements OnInit  {
             ) {}
 
   ngOnInit(): void {
-    console.log("name", name)
   }
 
   Save(frm: NgForm) {
+    if (frm.invalid) {
+      return;
+    }
+    this.userReqModel.name = this.name ?? '';
+    this.userReqModel.job = this.job ?? '';
+    if(this.user){
       if (this.user.id == null) {
-        let userReqModel: UserReqModel ={
-          name: this.name ?? '',
-          job: ''
-        }
-        this.apiService.createUser(userReqModel).subscribe(response => {
-            console.log("User created", response)
+        this.apiService.createUser(this.userReqModel).subscribe(response => {
+          this.saveUser.emit(response);
+          this.NgbActiveModal.close(response);
         });
-
+      } else {
+        this.apiService.updateUser(this.userReqModel, this.user.id).subscribe(response => {
+          this.saveUser.emit(response);
+          this.NgbActiveModal.close(response);
+        });
+      }
     }
   }
 
