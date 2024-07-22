@@ -24,9 +24,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="" *ngFor="let user of users" [class.selected]="selectedUser && selectedUser.id === user.id">
-                <td class="td-height">
-                  <div class="d-flex align-items-center">
+              <tr *ngFor="let user of users">
+              <td class="text-center" [ngClass]="{'selected-row': selectedArrowUserId === user.id}">
+                <div class="d-flex align-items-center">
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-1">
@@ -38,21 +38,22 @@
                     </div>
                   </div>
                 </td>
-                <td class="text-center">
+                <td class="text-center" [ngClass]="{'selected-row': selectedArrowUserId === user.id}">
                   <div style="display: flex; justify-content: center;">
 
-                  <div class="1st-button">
+                  <div *ngIf="!(isArrowClicked && selectedArrowUserId === user.id)" class="1st-button">
                       <button class="btn btn-outline-primary btn-sm mr-2" (click)="openEditUserModal(user); $event.stopPropagation();">
                         <i class="fas fa-edit"></i>
                       </button>
-                      <button class="btn btn-outline-danger btn-sm mr-2" (click)="deleteUser(user.id); $event.stopPropagation();">
+                      <button class="btn btn-outline-primary btn-sm mr-2" (click)="confirmDeleteUser(user); $event.stopPropagation();">
                         <i class="fas fa-trash-alt"></i>
                       </button>
                   </div>
                   <div class="2nd-button">
-                      <button class="btn btn-outline-secondary btn-sm" (click)="selectUser(user.id); $event.stopPropagation(); openOffCanvas();">
-                        <i class="fas fa-arrow-right"></i>
-                      </button>
+                    <button [ngClass]="{'btn-outline-light': isArrowClicked && selectedArrowUserId === user.id}"
+                    class="btn btn-outline-primary btn-sm" (click)="selectUser(user.id); $event.stopPropagation(); openOffCanvas();">
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
                   </div>
                 </div>
                 </td>
@@ -79,11 +80,10 @@
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offCanvasUser" aria-labelledby="offCanvasUserLabel">
   <div class="offcanvas-header">
     <h5 id="offCanvasUserLabel">{{ selectedUser?.first_name }} {{ selectedUser?.last_name }}</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" (click)="closeCanvas()" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <img [src]="selectedUser?.avatar" class="rounded-circle mb-3 user-avatar-large" alt="{{selectedUser?.first_name}}">
-    <p>{{ selectedUser?.email }}</p>
     <div class="d-flex justify-content-between">
       <button class="btn btn-primary flex-fill mr-2" (click)="openEditUserModal(selectedUser)">
         Edit

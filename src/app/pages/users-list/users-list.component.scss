@@ -12,9 +12,6 @@
     border-radius: 30rem;
 }
 
-.selected {
-  background-color: #e0c3fc !important;
-}
 .card {
   border: none;
   border-radius: 10px;
@@ -54,8 +51,8 @@
   height: 100px;
 }
 
-.selected {
-  background-color: #e0c3fc !important;
+.selected-row {
+  background-color: #8e44ad !important;
 }
 
 .btn-outline-primary {
@@ -68,24 +65,16 @@
   color: #fff;
 }
 
-.btn-outline-danger {
-  border-color: #dc3545;
-  color: #dc3545;
+
+.btn-outline-light {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
 }
 
-.btn-outline-danger:hover {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-.btn-outline-secondary {
-  border-color: #6c757d;
-  color: #6c757d;
-}
-
-.btn-outline-secondary:hover {
-  background-color: #6c757d;
-  color: #fff;
+.btn-outline-light:hover {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
 }
 
 .spinner-border {
@@ -145,4 +134,10 @@
 
 .offcanvas-body {
   padding: 1rem;
+}
+
+.custom-day.disabled {
+  background-color: #f0f0f0;
+  color: #d0d0d0;
+  cursor: not-allowed;    
 }
