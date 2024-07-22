@@ -22,10 +22,10 @@
             <a class="nav-link" routerLink="/contact">Contact</a>
           </li>
           <li class="nav-item">
-            <div *ngIf="isAuthurized=== false">
+            <div *ngIf="!isAuthorized">
               <button type="submit" class="btn btn-primary w-100">LOGIN</button>
             </div>
-            <div *ngIf="isAuthurized === true">
+            <div *ngIf="isAuthorized">
               <button type="submit" routerLink=""
               (click)="logout()"
               class="btn btn-primary w-100">LOGOUT</button>

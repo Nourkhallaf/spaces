@@ -1,56 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { LocalStorageService } from '../../service/localStorage.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/AuthService.';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   message: string = '';
-  isAuthurized:boolean = false;
-  loadingMore: boolean = false;
+  isAuthorized: boolean = false;
 
-
-  constructor(private apiService: ApiService,
-             private localStorageService: LocalStorageService,
-             private router: Router,
-
-  ) {
-    if (localStorageService.getAuthorization()) {
-      console.log("User is authenticated")
-      router.navigate(['']);
-      this.isAuthurized = true;
+  constructor(private authService: AuthService, private router: Router) {
+  }
+  ngOnInit(): void {
+    this.isAuthorized = this.authService.checkAuthorization();
+    if (this.isAuthorized) {
+      this.router.navigate(['']);
     } else {
-      console.log("User is not authenticated")
-      router.navigate(['login']);
-      this.isAuthurized = false;
+      this.router.navigate(['login']);
     }
+
+    this.authService.loginMessage.subscribe(message => {
+      this.message = message;
+    });
+  }
+
+  login() {
+    this.authService.login(this.email, this.password);
   }
 
 
-  login() {
-    let credentials ={
-      email: this.email,
-      password: this.password
-    }
-
-      this.apiService.login(credentials).subscribe((response: any)=>{
-        if(response){
-          this.message = 'Login successful!';
-          this.localStorageService.setAuthorization(response.token);
-          sessionStorage.setItem("email", this.email);
-          this.router.navigate(['/users']);
-        }
-      },
-        (error :any) => {
-          this.message = 'Login failed!';
-          console.log(error);
-        }
-      );
-    }
 }

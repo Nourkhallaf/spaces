@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LocalStorageService } from './service/localStorage.service';
 import { Router } from '@angular/router';
+import { AuthService } from './service/AuthService.';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +9,25 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'user-lists';
-  isAuthurized: boolean = false;
+  isAuthorized: boolean = false;
 
-  constructor(private localStorageService: LocalStorageService, private router:Router){
-    if (localStorageService.getAuthorization()) {
-      console.log("User is authenticated")
-      router.navigate(['']);
-      this.isAuthurized = true;
-    } else {
-      console.log("User is not authenticated")
-      router.navigate(['login']);
-      this.isAuthurized = false;
-    }
-  }
-  logout() {
+  constructor(
+    private authService: AuthService,
+    private router:Router){}
 
-    this.localStorageService.removeAuthorization();
-    this.router.navigate(['']);
-  }
+      ngOnInit(): void {
+        this.authService.authStatus$.subscribe((status: boolean) => {
+          this.isAuthorized = status;
+        });
+        this.isAuthorized = this.authService.checkAuthorization();
+        if (this.isAuthorized) {
+          this.router.navigate(['']);
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+
+      logout() {
+        this.authService.logout();
+      }
 }
