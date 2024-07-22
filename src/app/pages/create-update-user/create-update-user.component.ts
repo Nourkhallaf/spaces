@@ -15,9 +15,10 @@ export class CreateUserComponent implements OnInit  {
   @Input() user: User = new User()
   @Input() isEditMode: boolean = false;
   @Input() name: string ='';
-  @Input() job: string = '';
   @Output() saveUser = new EventEmitter<any>();
-
+  @Input() job: string = '';
+  firstName = '';
+  lastName = '';
   userReqModel: UserReqModel = new UserReqModel()
 
   constructor(private apiService: ApiService,
@@ -25,28 +26,60 @@ export class CreateUserComponent implements OnInit  {
             ) {}
 
   ngOnInit(): void {
+    if (this.isEditMode && this.user) {
+      this.firstName = this.user.first_name;
+      this.lastName = this.user.last_name;
+      this.job = this.user.job ?? '';
+    }
+
+    console.log("firstname", this.firstName)
   }
 
-  Save(frm: NgForm) {
+  createUser(): void {
+    this.apiService.createUser(this.userReqModel).subscribe(response => {
+      let newUser = this.mapResponseToUser(response);
+      console.log(response)
+      newUser.id = response.id; // Assuming the response contains an ID field
+      console.log("newuser",newUser )
+      this.saveUser.emit(newUser);
+      this.NgbActiveModal.close(newUser);
+    });
+  }
+
+  updateUser(): void {
+    this.apiService.updateUser(this.userReqModel, this.user.id!).subscribe(response => {
+      const updatedUser = this.mapResponseToUser(response);
+      this.saveUser.emit(updatedUser);
+      this.NgbActiveModal.close(updatedUser);
+    });
+  }
+
+
+  Save(frm: NgForm): void {
     if (frm.invalid) {
       return;
     }
+
     this.userReqModel.name = this.name ?? '';
     this.userReqModel.job = this.job ?? '';
-    if(this.user){
-      if (this.user.id == null) {
-        this.apiService.createUser(this.userReqModel).subscribe(response => {
-          this.saveUser.emit(response);
-          this.NgbActiveModal.close(response);
-        });
-      } else {
-        this.apiService.updateUser(this.userReqModel, this.user.id).subscribe(response => {
-          this.saveUser.emit(response);
-          this.NgbActiveModal.close(response);
-        });
-      }
+
+    if (this.isEditMode) {
+      this.updateUser();
+    } else {
+      this.createUser();
     }
   }
+
+  mapResponseToUser(response: any): User {
+    const newUser = new User();
+    const nameSplit= response.name.split(' ');
+    newUser.first_name = nameSplit[0];
+    newUser.last_name = nameSplit[1] || '';
+    newUser.job = response.job;
+    newUser.avatar = 'assets/images/person.jpg'; // Default static image for new users
+    return newUser;
+  }
+
 
   Cancel() {
     this.NgbActiveModal.dismiss();
