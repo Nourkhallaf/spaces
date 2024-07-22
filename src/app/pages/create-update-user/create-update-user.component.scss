@@ -31,3 +31,22 @@
   text-align: center;
   padding-top: 4rem;
 }
+
+.modal-body {
+  padding-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 5px;
+  box-shadow: none;
+  border-color: #e3e3e3;
+}
+
+.form-control:focus {
+  border-color: #8e44ad;
+  box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+}
