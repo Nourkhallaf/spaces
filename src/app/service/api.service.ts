@@ -38,6 +38,10 @@ export class ApiService {
     return this.http.post(`${this.API_URL}/users`, user);
   }
 
+  updateUser(user: UserReqModel, userId: number): Observable<any> {
+    return this.http.patch(`${this.API_URL}/users/${userId}`, user);
+  }
+
   deleteUser(userId: number): Observable<any> {
     return this.http.delete<any>(`${this.API_URL}/users/${userId}`);
   }
