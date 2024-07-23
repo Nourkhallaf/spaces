@@ -49,6 +49,8 @@
 .user-avatar-large {
   width: 100px;
   height: 100px;
+  display: block;
+  margin: 0 auto 1rem auto;
 }
 
 .selected-row {
@@ -139,5 +141,5 @@
 .custom-day.disabled {
   background-color: #f0f0f0;
   color: #d0d0d0;
-  cursor: not-allowed;    
+  cursor: not-allowed;
 }
