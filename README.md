@@ -85,22 +85,18 @@ src/
 │   │   │   ├── login.component.html
 │   │   │   ├── login.component.scss
 │   │   │   ├── login.component.ts
-│   │   │   └── login.component.spec.ts
 │   │   ├── users-list/
 │   │   │   ├── users-list.component.html
 │   │   │   ├── users-list.component.scss
 │   │   │   ├── users-list.component.ts
-│   │   │   └── users-list.component.spec.ts
 │   │   ├── create-update-user/
 │   │   │   ├── create-update-user.component.html
 │   │   │   ├── create-update-user.component.scss
 │   │   │   ├── create-update-user.component.ts
-│   │   │   └── create-update-user.component.spec.ts
 │   │   ├── delete-user/
 │   │   │   ├── delete-user.component.html
 │   │   │   ├── delete-user.component.scss
 │   │   │   ├── delete-user.component.ts
-│   │   │   └── delete-user.component.spec.ts
 │   ├── models/
 │   │   └── users.ts
 │   ├── service/
@@ -114,13 +110,9 @@ src/
 │   ├── app.component.html
 │   ├── app.component.scss
 │   ├── app.component.ts
-│   └── app-routing.module.ts
+│   ├── app-routing.module.ts
 ├── assets/
-│   ├── images/
-│   │   └── avatar.png
-│   │   └── login-image.png
-│   │   └── logo.png
-│   │   └── person.jpg
+│ └── (images, styles, etc.)
 └── index.html
 
 ## Future Enhancements
