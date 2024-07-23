@@ -26,6 +26,13 @@ export class ApiService {
   getUsers(): Observable<any> {
     return this.http.get(`${this.API_URL}/users`);
   }
+
+  // getUsers(): Observable<any> {
+  //   let userUrl = `${this.API_URL}/users/pages={page}`;
+	// 	// userUrl = userUrl.replace('{page}', String());
+
+  //   return this.http.get(userUrl);
+  // }
   getUser(userId: number): Observable<any> {
     return this.http.get(`${this.API_URL}/users/${userId}`);
   }
