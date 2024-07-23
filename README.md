@@ -77,7 +77,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## File Structure
-
+```
 src/
 ├── app/
 │   ├── components/
@@ -114,7 +114,7 @@ src/
 ├── assets/
 │ └── (images, styles, etc.)
 └── index.html
-
+`
 ## Future Enhancements
 
 -  Handle Pagination: Implement pagination to improve the user experience when dealing with large datasets.
