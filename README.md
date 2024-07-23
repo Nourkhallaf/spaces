@@ -113,7 +113,9 @@ src/
 │   ├── app-routing.module.ts
 ├── assets/
 │ └── (images, styles, etc.)
-└── index.html``
+└── index.html
+```
+
 ## Future Enhancements
 
 -  Handle Pagination: Implement pagination to improve the user experience when dealing with large datasets.
