@@ -1,6 +1,6 @@
 # Spaces 
+![spaces](https://github.com/user-attachments/assets/eab3c92c-72c1-4526-bd1d-1932ff2430b8)
 
-![logo](https://github.com/user-attachments/assets/2df88d72-06c9-43ed-a447-2c303804d8c6)
 
 ## Table of Contents
 
