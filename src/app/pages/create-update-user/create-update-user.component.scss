@@ -1,0 +1,52 @@
+@import url(../../../styles.scss);
+
+
+.cancel{
+  border-color: #8e44ad;
+  border-radius: 30rem;
+  color :#8e44ad
+}
+
+.cancel:hover {
+  background-color :#f3eded
+}
+.user-avatar-modal {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -30px;
+}
+
+.modal-dialog {
+  padding-top: 15rem;
+}
+
+.btn-lg {
+  padding:0 4.5rem;
+}
+
+.modal-header {
+  position: relative;
+  border-bottom: none;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 5px;
+  box-shadow: none;
+  border-color: #e3e3e3;
+}
+
+.form-control:focus {
+  border-color: #8e44ad;
+  box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+}

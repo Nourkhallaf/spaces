@@ -5,22 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
-import { UserDetailsComponent } from './pages/user-details/user-details.component';
-import { CreateUserComponent } from './pages/create-user/create-user.component';
-import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import { CreateUserComponent } from './pages/create-update-user/create-update-user.component';
 import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/api.service';
+import { LocalStorageService } from './service/localStorage.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UsersListComponent,
-    UserDetailsComponent,
     CreateUserComponent,
-    UpdateUserComponent,
     DeleteUserComponent
   ],
   imports: [
@@ -29,7 +26,7 @@ import { ApiService } from './service/api.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

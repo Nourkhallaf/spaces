@@ -1,0 +1,66 @@
+@import url(../../../styles.scss);
+
+
+.container {
+  background-color: #f7f7f7;
+}
+
+.login-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 900px;
+  width: 75%;
+}
+
+body, .login-card {
+  font-family: 'Arial', sans-serif;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  // font-weight: 500;
+
+}
+
+.form-group input {
+  padding: 10px;
+  margin-bottom: 15px;
+  // font-weight: 500;
+
+}
+
+.card-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding-top: 10rem;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  // font-weight: bold;
+}
+.card-text {
+  margin-bottom: 30px;
+  // font-weight: 500;
+
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+a {
+  color: #8e44ad !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #732d91;
+  text-decoration: none;
+}

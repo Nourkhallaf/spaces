@@ -1,0 +1,145 @@
+@import url(../../../styles.scss);
+.container-fluid.bg-grey {
+  background-color: #e8e2e2;
+}
+
+.bg-light {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+.delete{
+    border-color: #8e44ad;
+    border-radius: 30rem;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.td-height{
+  height:5rem;
+}
+
+.table th {
+  border-bottom: none;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.column-1{
+  padding-left: 70px;
+  padding-bottom: 35px;
+  padding-top: 35px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.user-avatar-large {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.selected-row {
+  background-color: #8e44ad !important;
+}
+
+.btn-outline-primary {
+  border-color: #6f42c1;
+  color: #6f42c1;
+}
+
+.btn-outline-primary:hover {
+  background-color: #6f42c1;
+  color: #fff;
+}
+
+
+.btn-outline-light {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-outline-light:hover {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.new-user-btn {
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+}
+
+.new-user-btn:hover {
+  background-color: #5a339d;
+  border-color: #5a339d;
+}
+
+.user-detail-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1rem;
+}
+
+
+.offcanvas {
+  width: 250px; /* Adjust width as needed */
+  background: white;
+  z-index: 1045;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 1px solid #ddd;
+}
+
+.offcanvas-show {
+  transform: translateX(0);
+}
+
+.offcanvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.offcanvas-body {
+  padding: 1rem;
+}
+
+.custom-day.disabled {
+  background-color: #f0f0f0;
+  color: #d0d0d0;
+  cursor: not-allowed;
+}

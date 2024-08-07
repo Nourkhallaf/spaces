@@ -1,0 +1,26 @@
+<div class="modal" style="display: block;" aria-labelledby="userModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+          <img [src]="user.avatar ? user.avatar : 'assets/images/avatar.png'"
+          alt="User Avatar" class="rounded-circle mb-3 user-avatar-modal">
+      </div>
+      <div class="modal-body">
+        <form #userForm="ngForm" (ngSubmit)="Save(userForm)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+          </div>
+          <div class="form-group">
+            <label for="job">Job Title</label>
+            <input type="text" class="form-control" id="job" name="job" [(ngModel)]="job" required>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button class="cancel btn btn-outline-primary btn-lg mr-2" (click)="Cancel()">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-lg"> {{ isEditMode ? 'Save' : 'Add' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
