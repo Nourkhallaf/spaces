@@ -13,8 +13,8 @@
 
 ## Introduction
 
-Welcome to the **Project Name**. This project is an Angular-based application designed to [briefly describe the purpose or functionality of your application].
-This is an Angular-based application +6that includes a login screen and functionalities for listing users and performing CRUD (Create, Read, Update, Delete) operations on users.
+Welcome to the **Spaces**. This project is an Angular-based application designed to [briefly describe the purpose or functionality of your application].
+This is an Angular-based application +6 that includes a login screen and functionalities for listing users and performing CRUD (Create, Read, Update, Delete) operations on users.
 
 
 ## Features
